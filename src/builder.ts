@@ -31,6 +31,19 @@ const car = builder.build();
 
 console.log({ car });
 
+function createCar(config: ICar): Car {
+  return new Car(config);
+}
+
+const car1 = createCar({ id: 2122, brand: "Bugatti", model: "Chiron", color: "Blue" });
+console.log({ car1 });
+
+const car2 = createCar({ id: 23 });
+console.log({ car2 });
+
+const car3 = createCar({ engine: "potent", height: 123 });
+console.log({ car3 });
+
 class Director {
   buildBugatti(builder: CarBuilder): void {
     builder.set("brand", "Bugatti").set("color", "Blue").set("qtyDoors", 2).set("engine", "8L").set("height", 115);
@@ -52,3 +65,31 @@ director.buildBugatti(builderFromDirector);
 const carFromBuilderDirector = builderFromDirector.build();
 
 console.log({ carFromBuilderDirector });
+
+class NewDirector {
+  buildBugatti(): Car {
+    return new Car({
+      brand: "Bugatti",
+      color: "Blue",
+      qtyDoors: 2,
+      engine: "8L",
+      height: 115,
+    });
+  }
+
+  buildLambo(): Car {
+    return new Car({
+      brand: "Lamborghini",
+      model: "Aventador",
+      color: "Yellow",
+      qtyDoors: 2,
+      height: 115,
+    });
+  }
+}
+
+const newDirector = new NewDirector();
+const bugatti = newDirector.buildBugatti();
+const lambo = newDirector.buildLambo();
+
+console.log({ bugatti, lambo });
