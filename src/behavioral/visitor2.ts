@@ -1,0 +1,77 @@
+abstract class Client {
+  constructor(
+    protected name: string,
+    protected address: string,
+    protected number: string,
+  ) {}
+
+  abstract sendMail(): void;
+}
+
+class Resident extends Client {
+  constructor(
+    name: string,
+    address: string,
+    number: string,
+    private insuranceClass: string,
+  ) {
+    super(name, address, number);
+    this.insuranceClass = insuranceClass;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  sendMail(): void {
+    console.log("Sending mail about medical insurance...");
+  }
+}
+
+class Company extends Client {
+  constructor(
+    name: string,
+    address: string,
+    number: string,
+    private nbrOfEmployees: number,
+  ) {
+    super(name, address, number);
+    this.nbrOfEmployees = nbrOfEmployees;
+  }
+
+  sendMail(): void {
+    console.log("Sending employees and equipment insurance mail...");
+  }
+}
+
+class Bank extends Client {
+  constructor(
+    name: string,
+    address: string,
+    number: string,
+    private branchesInsured: number,
+  ) {
+    super(name, address, number);
+    this.branchesInsured = branchesInsured;
+  }
+
+  sendMail(): void {
+    console.log("Sending mail about theft insurance...");
+  }
+}
+
+class Restaurant extends Client {
+  constructor(
+    name: string,
+    address: string,
+    number: string,
+    private availableAbroad: boolean,
+  ) {
+    super(name, address, number);
+    this.availableAbroad = availableAbroad;
+  }
+
+  sendMail(): void {
+    console.log("Sending mail about fire and food insurance...");
+  }
+}
