@@ -9,7 +9,7 @@ abstract class Client {
   constructor(
     protected name: string,
     protected address: string,
-    protected number: string,
+    protected addressNumber: number,
   ) {}
 
   abstract accept(visitor: Visitor): void;
@@ -19,10 +19,10 @@ class Bank extends Client {
   constructor(
     name: string,
     address: string,
-    number: string,
+    addressNumber: number,
     private branchesInsured: number,
   ) {
-    super(name, address, number);
+    super(name, address, addressNumber);
     this.branchesInsured = branchesInsured;
   }
 
@@ -35,10 +35,10 @@ class Restaurant extends Client {
   constructor(
     name: string,
     address: string,
-    number: string,
+    addressNumber: number,
     private availableAbroad: boolean,
   ) {
-    super(name, address, number);
+    super(name, address, addressNumber);
     this.availableAbroad = availableAbroad;
   }
 
@@ -51,10 +51,10 @@ class Resident extends Client {
   constructor(
     name: string,
     address: string,
-    number: string,
+    addressNumber: number,
     private insuranceClass: string,
   ) {
-    super(name, address, number);
+    super(name, address, addressNumber);
     this.insuranceClass = insuranceClass;
   }
 
@@ -67,10 +67,10 @@ class Company extends Client {
   constructor(
     name: string,
     address: string,
-    number: string,
+    addressNumber: number,
     private nbrOfEmployees: number,
   ) {
-    super(name, address, number);
+    super(name, address, addressNumber);
     this.nbrOfEmployees = nbrOfEmployees;
   }
 
@@ -98,7 +98,11 @@ class InsuranceMessagingVisitor implements Visitor {
     console.log("Sending mail about fire and food insurance...");
   }
 
-  visitCompany() {
+  visitCompany(company: Company): void {
     console.log("Sending employees and equipment insurance mail...");
   }
 }
+
+const visitor = new InsuranceMessagingVisitor();
+const bank = new Bank("Banco", "Rua Avenida", 123, 23);
+bank.accept(visitor);
