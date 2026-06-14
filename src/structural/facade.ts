@@ -73,24 +73,28 @@ class UIService {
 }
 
 abstract class CryptoService {
-  private cryptoDatabase!: CryptoDatabase;
-  private complexStuff!: SomeComplexStuff;
+  buyCurrency(user: User, amount: number): void {
+    this.debit(user, amount);
+    this.performPurchase(user, amount);
+  }
 
-  abstract buyCurrency(user: User, amount: number): void;
+  private debit(user: User, amount: number): void {
+    user.setBalance(user.getBalance() - amount);
+  }
+
+  protected abstract performPurchase(user: User, amount: number): void;
 }
 
 class BitcoinService extends CryptoService {
-  buyCurrency(user: User, amount: number): void {
+  protected performPurchase(user: User, amount: number): void {
     console.log(`Buy ${amount} ${user.getCurrency()} in Bitcoin for ${user.getName()}`);
-    user.setBalance(user.getBalance() - amount);
     console.log("balance:", user.getBalance());
   }
 }
 
 class EthereumService extends CryptoService {
-  buyCurrency(user: User, amount: number): void {
+  protected performPurchase(user: User, amount: number): void {
     console.log(`Buy ${amount} ${user.getCurrency()} in ETH for ${user.getName()}`);
-    user.setBalance(user.getBalance() - amount);
     console.log("balance:", user.getBalance());
   }
 }
