@@ -33,9 +33,13 @@ class Store {
     this.books.push(new Book(name, price, bookType));
   }
 
+  getNumberOfBooks(): number {
+    return this.books.length;
+  }
+
   displayBooks(): void {
     for (const book of this.books) {
-      console.log({ book });
+      console.log(book);
     }
   }
 }
@@ -43,7 +47,7 @@ class Store {
 const BOOK_TYPES = 2;
 const BOOKS_TO_INSERT = 100_000;
 
-function insertBooks(): void {
+export function insertBooks(): void {
   const store = new Store();
 
   console.time();
@@ -55,22 +59,46 @@ function insertBooks(): void {
   store.displayBooks();
 
   console.timeEnd();
-
-  console.log(BOOKS_TO_INSERT + " Books Inserted");
-  console.log("----------------------");
-  console.log("Memory Usage:");
-  console.log("Book Size (20 bytes) * " + BOOKS_TO_INSERT + " + BookTypes Size (30 bytes) * " + BOOK_TYPES + " ");
-  console.log("----------------------");
-  console.log(
-    "Total: " +
-      (BOOKS_TO_INSERT * 20 + BOOK_TYPES * 30) / 1024 / 1024 +
-      "MB (instead of " +
-      (BOOKS_TO_INSERT * 50) / 1024 / 1024 +
-      "MB)",
-  );
 }
 
-insertBooks();
+// insertBooks();
+
+function insertBooks2(): void {
+  // 1. Force GC to get a clean baseline
+  if (global.gc) {
+    global.gc();
+  } else {
+    console.warn("Run node with --expose-gc for accurate results");
+  }
+  const memoryBefore = process.memoryUsage().heapUsed;
+
+  const store = new Store();
+
+  console.time();
+
+  for (let i = 0; i < BOOKS_TO_INSERT / BOOK_TYPES; i++) {
+    store.storeBook(getRandomName(), getRandomPrice(), "Action", "Follett", "Stuff");
+    store.storeBook(getRandomName(), getRandomPrice(), "Fantasy", "Ingram", "Extra");
+  }
+  // Comment out this line to avoid console buffer allocation overhead:
+  // store.displayBooks();
+
+  console.timeEnd();
+
+  // 2. Force GC again to clean up any temporary objects created during the loop
+  if (global.gc) {
+    global.gc();
+  }
+  const memoryAfter = process.memoryUsage().heapUsed;
+
+  const heapUsedBytes = memoryAfter - memoryBefore;
+  console.log(`Heap Memory Used: ${(heapUsedBytes / 1024 / 1024).toFixed(2)} MB`);
+
+  // Keep the store (and all books) alive so it isn't garbage collected before measurement
+  console.log(`Kept alive: ${store.getNumberOfBooks()} books stored.`);
+}
+
+insertBooks2();
 
 function getRandomPrice(): number {
   return Number((Math.random() * 100).toFixed(2));
