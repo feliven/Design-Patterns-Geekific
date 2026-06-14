@@ -40,7 +40,7 @@ class NotificationService {
 }
 
 class EmailMsgListener {
-  private email: string;
+  public readonly email: string;
 
   constructor(email: string) {
     this.email = email;

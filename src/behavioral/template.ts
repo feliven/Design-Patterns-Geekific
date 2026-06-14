@@ -25,7 +25,7 @@ class WorldOfWarcraftLoader extends BaseGameLoader {
     return [];
   }
 
-  createObjects(data: number[]): void {
+  createObjects(_data: number[]): void {
     console.log("Creating WoW objects...");
     // Some Warcraft Code...
   }
@@ -48,7 +48,7 @@ class DiabloLoader extends BaseGameLoader {
     return [];
   }
 
-  createObjects(data: number[]): void {
+  createObjects(_data: number[]): void {
     console.log("Creating Diablo objects...");
     // Some Diablo Code...
   }

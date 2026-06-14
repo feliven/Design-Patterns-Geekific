@@ -4,7 +4,7 @@ class User {
     private name: string,
     private balance: number,
     private currency: string,
-    private accountNbr: string,
+    public readonly accountNbr: string,
   ) {}
 
   getId(): string {
@@ -50,7 +50,7 @@ class UserDatabaseService {
 }
 
 class CryptoDatabase {
-  private crypto = [];
+  public readonly crypto = [];
 }
 
 class SomeComplexStuff {}
@@ -61,7 +61,7 @@ class UIService {
     return "1";
   }
 
-  login(username: string, password: string): boolean {
+  login(_username: string, _password: string): boolean {
     //
     return true;
   }

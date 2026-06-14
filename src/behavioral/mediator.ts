@@ -28,9 +28,11 @@ class LoginButton extends JButton {
     this.passTxt = passTxt;
   }
 
-  protected fireActionPerformed(actionEvent: ActionEvent): void {
-    const username: string = this.userTxt.getText();
-    const password: string = this.passTxt.getText();
+  protected fireActionPerformed(_actionEvent: ActionEvent): void {
+    this.userTxt.getText();
+    this.userTxt.getText();
+    // const password: string = this.passTxt.getText();
+    // const password: string = this.passTxt.getText();
     // validates username and password
     // logs in the user or pops error message
   }

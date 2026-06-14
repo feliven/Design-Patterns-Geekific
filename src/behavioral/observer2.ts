@@ -53,7 +53,7 @@ class Store {
 }
 
 class EmailMsgListener implements EventListener {
-  private email: string;
+  public readonly email: string;
 
   constructor(email: string) {
     this.email = email;
@@ -66,7 +66,7 @@ class EmailMsgListener implements EventListener {
 }
 
 class MobileAppListener implements EventListener {
-  private username: string;
+  public readonly username: string;
 
   constructor(username: string) {
     this.username = username;

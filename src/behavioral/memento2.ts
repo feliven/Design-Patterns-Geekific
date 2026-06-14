@@ -107,3 +107,5 @@ const getDataPromise = () => {
     }, 2000);
   });
 };
+
+getDataPromise();

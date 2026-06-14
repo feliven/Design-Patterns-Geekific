@@ -13,7 +13,7 @@ class Resident extends Client {
     name: string,
     address: string,
     number: string,
-    private insuranceClass: string,
+    readonly insuranceClass: string,
   ) {
     super(name, address, number);
     this.insuranceClass = insuranceClass;
@@ -33,7 +33,7 @@ class Company extends Client {
     name: string,
     address: string,
     number: string,
-    private nbrOfEmployees: number,
+    readonly nbrOfEmployees: number,
   ) {
     super(name, address, number);
     this.nbrOfEmployees = nbrOfEmployees;
@@ -49,7 +49,7 @@ class Bank extends Client {
     name: string,
     address: string,
     number: string,
-    private branchesInsured: number,
+    readonly branchesInsured: number,
   ) {
     super(name, address, number);
     this.branchesInsured = branchesInsured;
@@ -65,7 +65,7 @@ class Restaurant extends Client {
     name: string,
     address: string,
     number: string,
-    private availableAbroad: boolean,
+    readonly availableAbroad: boolean,
   ) {
     super(name, address, number);
     this.availableAbroad = availableAbroad;

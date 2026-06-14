@@ -12,14 +12,14 @@ interface Vertex<T> {
 }
 
 class Vertex<T> implements Vertex<T> {
-  constructor(private num: number) {
+  constructor(public readonly num: number) {
     this.num = num;
   }
 
   isVisited(): boolean {
     return true;
   }
-  setVisited(set: boolean): void {}
+  setVisited(_set: boolean): void {}
   getNeighbors(): T[] {
     return [];
   }

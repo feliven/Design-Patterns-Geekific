@@ -7,21 +7,21 @@ interface IMultiRestoApp {
 }
 
 class MultiRestoApp implements IMultiRestoApp {
-  displayMenus(xmlData: XmlData): void {
+  displayMenus(_xmlData: XmlData): void {
     console.log("Displays menus using XML data");
   }
 
-  displayRecommendations(xmlData: XmlData): void {
+  displayRecommendations(_xmlData: XmlData): void {
     console.log("Displays recommendations using XML data");
   }
 }
 
 class FancyUIService {
-  displayMenus(jsonData: JsonData): void {
+  displayMenus(_jsonData: JsonData): void {
     console.log("Make use of the JsonData to fetch menus");
   }
 
-  displayRecommendations(jsonData: JsonData): void {
+  displayRecommendations(_jsonData: JsonData): void {
     console.log("Make use of the JsonData to load recommendations");
   }
 }
@@ -43,7 +43,7 @@ class FancyUIServiceAdapter implements IMultiRestoApp {
     this.fancyUIService.displayRecommendations(jsonData);
   }
 
-  private convertXmlToJson(xmlData: XmlData): JsonData {
+  private convertXmlToJson(_xmlData: XmlData): JsonData {
     // Convert XmlData to JsonData and return it
     return new JsonData();
   }

@@ -14,25 +14,25 @@ interface Oven {}
 interface Windows {}
 
 class Kitchen extends Room {
-  private oven!: Oven;
+  public readonly oven!: Oven;
 
   //
 }
 
 class Bathroom extends Room {
-  private hotWater!: string;
+  public readonly hotWater!: string;
 
   //
 }
 
 class LivingRoom extends Room {
-  private windows!: Windows;
+  public readonly windows!: Windows;
 
   //
 }
 
 class Bedroom extends Room {
-  private music!: string;
+  public readonly music!: string;
 
   //
 }

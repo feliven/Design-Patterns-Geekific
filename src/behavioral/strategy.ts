@@ -2,9 +2,9 @@ class CreditCard {
   private amount: number = 1000;
 
   constructor(
-    private number: string,
-    private date: string,
-    private cvv: string,
+    readonly number: string,
+    readonly date: string,
+    readonly cvv: string,
   ) {
     this.number = number;
     this.date = date;
@@ -62,6 +62,8 @@ class PaymentByPayPal implements PaymentStrategy {
     this.email = "...";
     this.password = "...";
     // Validate account...
-    console.log("Paying " + amount + " using PayPal");
+    if (this.email && this.password) {
+      console.log("Paying " + amount + " using PayPal");
+    }
   }
 }

@@ -20,7 +20,7 @@ class Bank extends Client {
     name: string,
     address: string,
     addressNumber: number,
-    private branchesInsured: number,
+    readonly branchesInsured: number,
   ) {
     super(name, address, addressNumber);
     this.branchesInsured = branchesInsured;
@@ -36,7 +36,7 @@ class Restaurant extends Client {
     name: string,
     address: string,
     addressNumber: number,
-    private availableAbroad: boolean,
+    readonly availableAbroad: boolean,
   ) {
     super(name, address, addressNumber);
     this.availableAbroad = availableAbroad;
@@ -52,7 +52,7 @@ class Resident extends Client {
     name: string,
     address: string,
     addressNumber: number,
-    private insuranceClass: string,
+    readonly insuranceClass: string,
   ) {
     super(name, address, addressNumber);
     this.insuranceClass = insuranceClass;
@@ -68,7 +68,7 @@ class Company extends Client {
     name: string,
     address: string,
     addressNumber: number,
-    private nbrOfEmployees: number,
+    readonly nbrOfEmployees: number,
   ) {
     super(name, address, addressNumber);
     this.nbrOfEmployees = nbrOfEmployees;
@@ -86,19 +86,19 @@ class InsuranceMessagingVisitor implements Visitor {
     }
   }
 
-  visitBank(bank: Bank): void {
+  visitBank(_bank: Bank): void {
     console.log("Sending mail about theft insurance...");
   }
 
-  visitResident(resident: Resident): void {
+  visitResident(_resident: Resident): void {
     console.log("Sending mail about medical insurance...");
   }
 
-  visitRestaurant(restaurant: Restaurant): void {
+  visitRestaurant(_restaurant: Restaurant): void {
     console.log("Sending mail about fire and food insurance...");
   }
 
-  visitCompany(company: Company): void {
+  visitCompany(_company: Company): void {
     console.log("Sending employees and equipment insurance mail...");
   }
 }

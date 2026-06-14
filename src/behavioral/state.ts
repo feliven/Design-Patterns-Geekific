@@ -121,9 +121,9 @@ class JButton {
 function usePhone(): void {
   const phone = new Phone();
   const home = new JButton("Home");
-  home.addActionListener((e: Event) => phone.getState().onHome());
+  home.addActionListener((_e: Event) => phone.getState().onHome());
   const onOff = new JButton("On/Off");
-  onOff.addActionListener((e: Event) => phone.getState().onOffOn());
+  onOff.addActionListener((_e: Event) => phone.getState().onOffOn());
 
   // Simulate user interactions:
   onOff.press(); // Turns screen on, device still locked (OffState -> LockedState)

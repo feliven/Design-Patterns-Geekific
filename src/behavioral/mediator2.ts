@@ -34,7 +34,7 @@ class LoginButton extends JButton implements Component {
     super("Log In");
   }
 
-  protected fireActionPerformed(actionEvent: ActionEvent): void {
+  protected fireActionPerformed(_actionEvent: ActionEvent): void {
     this.mediator?.login();
   }
 
@@ -51,12 +51,14 @@ class Dialog implements Mediator {
   constructor(
     private userTextBox: TextBox,
     private passTextBox: TextBox,
-    private button: LoginButton,
+    public readonly button: LoginButton,
   ) {}
 
   login(): void {
-    const username = this.userTextBox.getText();
-    const password = this.passTextBox.getText();
+    this.userTextBox.getText();
+    this.passTextBox.getText();
+    // const username = this.userTextBox.getText();
+    // const password = this.passTextBox.getText();
     // validate username and password
     // logs in the user or pops error message
   }
