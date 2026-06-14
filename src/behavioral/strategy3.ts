@@ -41,7 +41,7 @@ class PaymentByCreditCard implements PaymentStrategy {
   }
 }
 
-class PaymentByPayPal implements PaymentStrategy {
+export class PaymentByPayPal implements PaymentStrategy {
   private email: string = "";
   private password: string = "";
 

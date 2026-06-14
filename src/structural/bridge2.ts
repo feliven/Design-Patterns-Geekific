@@ -8,7 +8,7 @@ abstract class Pizza {
   abstract deliver(): void;
 }
 
-class ItalianVeggiePizza extends Pizza {
+export class ItalianVeggiePizza extends Pizza {
   deliver(): void {
     console.log("Adding Oil Sauce");
     console.log("Adding No Toppings");
@@ -18,7 +18,7 @@ class ItalianVeggiePizza extends Pizza {
   }
 }
 
-class ItalianPepperoniPizza extends Pizza {
+export class ItalianPepperoniPizza extends Pizza {
   deliver(): void {
     console.log("Adding Oil Sauce");
     console.log("Adding No Toppings");
@@ -28,7 +28,7 @@ class ItalianPepperoniPizza extends Pizza {
   }
 }
 
-class AmericanVeggiePizza extends Pizza {
+export class AmericanVeggiePizza extends Pizza {
   deliver(): void {
     console.log("Adding Super Secret Sauce");
     console.log("Adding Toppings: Everything");
@@ -38,7 +38,7 @@ class AmericanVeggiePizza extends Pizza {
   }
 }
 
-class AmericanPepperoniPizza extends Pizza {
+export class AmericanPepperoniPizza extends Pizza {
   deliver(): void {
     console.log("Adding Secret Sauce");
     console.log("Adding All Toppings");

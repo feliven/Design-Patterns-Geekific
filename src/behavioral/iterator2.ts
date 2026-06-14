@@ -140,7 +140,7 @@ interface Tree<T> {
   createDFSIterator(...params: unknown[]): Iterator<T>;
 }
 
-class BinarySearchTree<T> implements Tree<T> {
+export class BinarySearchTree<T> implements Tree<T> {
   //
 
   createBFSIterator(param: Vertex<T>): Iterator<T> {
@@ -152,7 +152,7 @@ class BinarySearchTree<T> implements Tree<T> {
   }
 }
 
-class RedBlackTree<T> implements Tree<T> {
+export class RedBlackTree<T> implements Tree<T> {
   //
 
   createBFSIterator(param: Vertex<T>): Iterator<T> {

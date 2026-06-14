@@ -61,7 +61,7 @@ class DepthFirstIterator<T> implements Iterator<T> {
   }
 }
 
-class BreadthFirstIterator<T> implements Iterator<T> {
+export class BreadthFirstIterator<T> implements Iterator<T> {
   BreadthFirstIterator() {
     //
   }

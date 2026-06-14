@@ -1,4 +1,4 @@
-class Store {
+export class Store {
   private notificationService: NotificationService;
 
   constructor() {

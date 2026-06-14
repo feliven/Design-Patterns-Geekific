@@ -20,7 +20,7 @@ class CreditCard {
   }
 }
 
-class PaymentService {
+export class PaymentService {
   private cost: number = 0;
   private includeDelivery: boolean = false;
 
@@ -41,7 +41,7 @@ interface PaymentStrategy {
   pay(amount: number): void;
 }
 
-class PaymentByCreditCard implements PaymentStrategy {
+export class PaymentByCreditCard implements PaymentStrategy {
   private card!: CreditCard;
 
   pay(amount: number): void {
@@ -53,7 +53,7 @@ class PaymentByCreditCard implements PaymentStrategy {
   }
 }
 
-class PaymentByPayPal implements PaymentStrategy {
+export class PaymentByPayPal implements PaymentStrategy {
   private email!: string;
   private password!: string;
 

@@ -6,7 +6,7 @@ abstract class Client {
   ) {}
 }
 
-class Resident extends Client {
+export class Resident extends Client {
   constructor(
     name: string,
     address: string,
@@ -22,7 +22,7 @@ class Resident extends Client {
   }
 }
 
-class Company extends Client {
+export class Company extends Client {
   constructor(
     name: string,
     address: string,
@@ -34,7 +34,7 @@ class Company extends Client {
   }
 }
 
-class Bank extends Client {
+export class Bank extends Client {
   constructor(
     name: string,
     address: string,
@@ -46,7 +46,7 @@ class Bank extends Client {
   }
 }
 
-class Restaurant extends Client {
+export class Restaurant extends Client {
   constructor(
     name: string,
     address: string,

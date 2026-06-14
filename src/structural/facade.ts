@@ -49,11 +49,11 @@ class UserDatabaseService {
   }
 }
 
-class CryptoDatabase {
+export class CryptoDatabase {
   public readonly crypto = [];
 }
 
-class SomeComplexStuff {}
+export class SomeComplexStuff {}
 
 class UIService {
   static getLoggedInUserId(): string {

@@ -8,7 +8,7 @@ abstract class Pizza {
   abstract deliver(): void;
 }
 
-class PepperoniPizza extends Pizza {
+export class PepperoniPizza extends Pizza {
   deliver(): void {
     console.log("Adding Sauce");
     console.log("Adding Toppings");
@@ -17,7 +17,7 @@ class PepperoniPizza extends Pizza {
   }
 }
 
-class VeggiePizza extends Pizza {
+export class VeggiePizza extends Pizza {
   deliver(): void {
     console.log("Adding Sauce");
     console.log("Adding Different Toppings");
